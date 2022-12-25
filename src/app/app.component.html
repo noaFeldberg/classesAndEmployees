@@ -5,7 +5,7 @@
   <mat-icon class="menu" (click)="sidebarShow = !sidebarShow">menu</mat-icon>
   <span class="title">Welcome</span>
     <div class="spacer"></div>
-    <select class="company-selection">
+    <select class="company-selection" [ngModel]="selectedCompany" (ngModelChange)="changeCompany($event)">
       <ng-container *ngFor="let company of companies">
         <option>{{company}}</option>
       </ng-container>

@@ -15,29 +15,30 @@ import * as ClassActions from './store/actions/class.actions'
 })
 
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'runai-companies';
   companies = ["Run.ai", "Facebook", "Apple"];
-  selectedCompany = "Run.ai";
   sidebarShow = false;
-  
+  selectedCompany;
   classClicked = false;
   bla=false;
 
   classes: ClassData[] = [];
-  $classes: Observable<ClassData[]>;
 
   private subscriptions: Subscription[] = [];
 
 
   constructor(private dialog: MatDialog, private store: Store<AppState>) {
-    
+    this.selectedCompany = window.localStorage.getItem('company') || this.companies[0];
   }
 
   ngOnInit(): void {
     this.subscriptions.push(this.store.select('classes').subscribe((classes) => {
       this.classes = classes;
     }));
+  }
 
+  changeCompany(companyName) {
+    this.selectedCompany = companyName;
+    window.localStorage.setItem('company', companyName);
   }
 
 
@@ -54,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
       data:{
         saveCallback: (name: string) => {
           const id = Math.floor(Math.random() * 100);
-          this.store.dispatch(new ClassActions.AddClass({name: name, id: id, company: "bla1"}))
+          this.store.dispatch(new ClassActions.AddClass({name: name, id: id, company: this.selectedCompany}))
         }
       }
     });
