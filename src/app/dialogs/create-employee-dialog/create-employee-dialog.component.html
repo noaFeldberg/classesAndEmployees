@@ -1,9 +1,9 @@
 <h4>Add Employee</h4>
 <input type="text" placeholder="Employee name" [(ngModel)]="employeeName"/>
 
-<select [ngModel]="employeeClass">
+<select [ngModel]="selectedClassId" (ngModelChange)="changeClass($event)">
   <ng-container *ngFor="let class of classes">
-    <option>{{class.name}}</option>
+    <option [value]="class.id">{{class.name}}</option>
   </ng-container>
 </select>
 

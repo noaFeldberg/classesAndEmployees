@@ -17,7 +17,8 @@ export class EmployeesTableComponent {
   @Input() employees;
   @Input() classes;
 
-  constructor(private dialog: MatDialog, private store: Store<AppState>) {}
+  constructor(private dialog: MatDialog, private store: Store<AppState>) {
+  }
 
   addEmployee() {
     this.dialog.open(CreateEmployeeDialogComponent,{
@@ -27,7 +28,7 @@ export class EmployeesTableComponent {
         classes: this.classes,
         saveCallback: (name: string, classData: ClassData) => {
           const id = Math.floor(Math.random() * 100);
-          this.store.dispatch(new EmployeeActions.AddEmployee({name: name, id: id, company: this.company, class: classData}))
+          this.store.dispatch(new EmployeeActions.AddEmployee({name: name, id: id, company: this.company, classData: classData}))
         }
       }
     });

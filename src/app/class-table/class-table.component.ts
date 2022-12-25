@@ -14,13 +14,13 @@ import { ClassData } from '../store/models/class.model';
 export class ClassTableComponent {
   @Input() company;
   @Input() classes;
+  @Input() employees;
 
   constructor(private dialog: MatDialog, private store: Store<AppState>) {
   }
 
   addClass() {
     this.dialog.open(CreateClassDialogComponent,{
-      panelClass: ['custom-modalbox'],
       height: '350px', 
       width: '100px',
       data:{
@@ -33,6 +33,9 @@ export class ClassTableComponent {
   }
 
   removeItem(classData: ClassData) {
-    this.store.dispatch(new ClassActions.RemoveClass(classData.id))
+    console.log(this.employees)
+    const classEmployees = this.employees.filter(e => e.classData.id === classData.id);
+    console.log(classEmployees)
+    // this.store.dispatch(new ClassActions.RemoveClass(classData.id))
   }
 }

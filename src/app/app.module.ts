@@ -14,6 +14,7 @@ import { ClassTableComponent } from './class-table/class-table.component';
 import { EmployeesTableComponent } from './employees-table/employees-table.component';
 import { CreateEmployeeDialogComponent } from './dialogs/create-employee-dialog/create-employee-dialog.component'
 import { employeeReducer } from './store/reducers/employee.reducer';
+import { RemoveClassDialogComponent } from './dialogs/remove-class-dialog/remove-class-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { employeeReducer } from './store/reducers/employee.reducer';
     ClassTableComponent,
     EmployeesTableComponent,
     CreateEmployeeDialogComponent,
+    RemoveClassDialogComponent,
   ],
   imports: [
     BrowserModule,

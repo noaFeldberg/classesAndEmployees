@@ -11,6 +11,7 @@ export class CreateEmployeeDialogComponent {
   employeeName?: string;
   employeeClass?: ClassData;
   classes: ClassData[];
+  selectedClassId: number;
       
   constructor(
     @Inject(MAT_DIALOG_DATA) 
@@ -20,6 +21,12 @@ export class CreateEmployeeDialogComponent {
     },
     private dialogRef: MatDialogRef<CreateEmployeeDialogComponent>) {
       this.classes = this.data.classes;
+    }
+
+    changeClass(selectedClassId: number) {
+      if (selectedClassId) {
+        this.employeeClass = this.classes.find(c => c.id == selectedClassId);
+      }
     }
 
     onSave() {

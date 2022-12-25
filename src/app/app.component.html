@@ -23,6 +23,7 @@
     <app-class-table
       *ngIf="classClicked"
       [company]="selectedCompany"
+      [employees]="filteredEmployees"
       [classes]="filteredClasses"
     ></app-class-table>
     <app-employees-table

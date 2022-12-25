@@ -14,7 +14,7 @@
     <tr *ngFor="let employee of employees">
         <td>{{employee.id}}</td>
         <td>{{employee.name}}</td>
-        <td>{{employee.class.name}}</td>
+        <td>{{employee.classData.name}}</td>
         <td><span (click)="removeItem(employee)">Remove</span></td>
     </tr>
   </tbody>

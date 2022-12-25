@@ -4,5 +4,5 @@ export interface Employee {
   id: number;
   name: string;
   company: string;
-  class: ClassData;
+  classData: ClassData;
 }
