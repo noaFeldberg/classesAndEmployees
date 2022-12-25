@@ -9,7 +9,8 @@ export function classReducer(state: ClassData[] = [], action: ClassActions.Actio
       return [...state, action.payload]
     case ClassActions.REMOVE_CLASS:
       let newState = [...state];
-      newState.splice(action.payload, 1);
+      const index = newState.findIndex((c) => c.id === action.payload);
+      newState.splice(index, 1);
       return newState;
     default:
       return state;

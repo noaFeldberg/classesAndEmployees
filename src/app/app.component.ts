@@ -19,9 +19,9 @@ export class AppComponent implements OnInit, OnDestroy {
   sidebarShow = false;
   selectedCompany;
   classClicked = false;
-  bla=false;
 
   classes: ClassData[] = [];
+  filteredClasses: ClassData[] = [];
 
   private subscriptions: Subscription[] = [];
 
@@ -33,37 +33,39 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.store.select('classes').subscribe((classes) => {
       this.classes = classes;
+      this.filteredClasses = this.classes.filter(c => c.company == this.selectedCompany);
     }));
   }
 
   changeCompany(companyName) {
     this.selectedCompany = companyName;
     window.localStorage.setItem('company', companyName);
+    this.filteredClasses = this.classes.filter(c => c.company == companyName);
   }
 
 
   clickOnClasses() {
-    this.classClicked = !this.classClicked;
+    this.classClicked = true;
   }
 
-  addClass() {
-    this.bla = true;
-    this.dialog.open(CreateClassDialogComponent,{
-      panelClass: ['custom-modalbox'],
-      height: '350px', 
-      width: '100px',
-      data:{
-        saveCallback: (name: string) => {
-          const id = Math.floor(Math.random() * 100);
-          this.store.dispatch(new ClassActions.AddClass({name: name, id: id, company: this.selectedCompany}))
-        }
-      }
-    });
-  }
+  // addClass() {
+  //   this.bla = true;
+  //   this.dialog.open(CreateClassDialogComponent,{
+  //     panelClass: ['custom-modalbox'],
+  //     height: '350px', 
+  //     width: '100px',
+  //     data:{
+  //       saveCallback: (name: string) => {
+  //         const id = Math.floor(Math.random() * 100);
+  //         this.store.dispatch(new ClassActions.AddClass({name: name, id: id, company: this.selectedCompany}))
+  //       }
+  //     }
+  //   });
+  // }
 
-  removeItem(index: number) {
-    this.store.dispatch(new ClassActions.RemoveClass(index))
-  }
+  // removeItem(index: number) {
+  //   this.store.dispatch(new ClassActions.RemoveClass(index))
+  // }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((s) => s.unsubscribe())

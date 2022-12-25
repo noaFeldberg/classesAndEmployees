@@ -14,7 +14,6 @@
 
 
 <div class="content" role="main">
-  
   <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
       <div class="sidebar-content">
           <div (click)="clickOnClasses()">Classes</div>
@@ -23,24 +22,9 @@
   </div>
 
   <div *ngIf="classClicked">
-    <h1>Classes Table
-      <mat-icon class="add-circle" (click)="addClass()">add_circle</mat-icon>
-    </h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Actions</th>
-        </tr>
-       </thead>
-       <tbody>
-        <tr *ngFor="let class of classes; let i=index">
-            <td>{{class.id}}</td>
-            <td>{{class.name}}</td>
-            <td><span (click)="removeItem(i)">Remove</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <app-class-table
+      [company]="selectedCompany"
+      [classes]="filteredClasses"
+    >
+    </app-class-table>
 </div>

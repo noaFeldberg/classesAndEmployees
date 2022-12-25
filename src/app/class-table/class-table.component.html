@@ -1,0 +1,19 @@
+<h1>Classes Table
+  <mat-icon class="add-circle" (click)="addClass()">add_circle</mat-icon>
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let class of classes">
+        <td>{{class.id}}</td>
+        <td>{{class.name}}</td>
+        <td><span (click)="removeItem(class)">Remove</span></td>
+    </tr>
+  </tbody>
+</table>

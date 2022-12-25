@@ -9,12 +9,14 @@ import { CreateClassDialogComponent } from './dialogs/create-class-dialog/create
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { classReducer } from './store/reducers/class.reducer'
+import { classReducer } from './store/reducers/class.reducer';
+import { ClassTableComponent } from './class-table/class-table.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateClassDialogComponent,
+    ClassTableComponent,
   ],
   imports: [
     BrowserModule,
