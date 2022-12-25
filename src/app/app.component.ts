@@ -7,6 +7,7 @@ import { AppState } from './app.state';
 import { CreateClassDialogComponent } from './dialogs/create-class-dialog/create-class-dialog.component';
 import { ClassData } from './store/models/class.model';
 import * as ClassActions from './store/actions/class.actions'
+import { Employee } from './store/models/employee.model';
 
 @Component({
   selector: 'app-root',
@@ -19,14 +20,18 @@ export class AppComponent implements OnInit, OnDestroy {
   sidebarShow = false;
   selectedCompany;
   classClicked = false;
+  employeesClicked = false;
 
   classes: ClassData[] = [];
   filteredClasses: ClassData[] = [];
 
+  employees: Employee[] = [];
+  filteredEmployees: Employee[] = [];
+
   private subscriptions: Subscription[] = [];
 
 
-  constructor(private dialog: MatDialog, private store: Store<AppState>) {
+  constructor(private store: Store<AppState>) {
     this.selectedCompany = window.localStorage.getItem('company') || this.companies[0];
   }
 
@@ -35,42 +40,35 @@ export class AppComponent implements OnInit, OnDestroy {
       this.classes = classes;
       this.filteredClasses = this.classes.filter(c => c.company == this.selectedCompany);
     }));
+
+    this.subscriptions.push(this.store.select('employees').subscribe((employees) => {
+      this.employees = employees;
+      this.filteredEmployees = this.employees.filter(c => c.company == this.selectedCompany);
+    }));
   }
 
   changeCompany(companyName) {
     this.selectedCompany = companyName;
     window.localStorage.setItem('company', companyName);
     this.filteredClasses = this.classes.filter(c => c.company == companyName);
+    this.filteredEmployees = this.employees.filter(c => c.company == companyName);
   }
 
 
   clickOnClasses() {
+    this.employeesClicked = false;
     this.classClicked = true;
   }
 
-  // addClass() {
-  //   this.bla = true;
-  //   this.dialog.open(CreateClassDialogComponent,{
-  //     panelClass: ['custom-modalbox'],
-  //     height: '350px', 
-  //     width: '100px',
-  //     data:{
-  //       saveCallback: (name: string) => {
-  //         const id = Math.floor(Math.random() * 100);
-  //         this.store.dispatch(new ClassActions.AddClass({name: name, id: id, company: this.selectedCompany}))
-  //       }
-  //     }
-  //   });
-  // }
-
-  // removeItem(index: number) {
-  //   this.store.dispatch(new ClassActions.RemoveClass(index))
-  // }
+  clickOnEmployees() {
+    this.classClicked = false;
+    this.employeesClicked = true;
+    console.log("this.filteredClasses: ", this.filteredClasses)
+  }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((s) => s.unsubscribe())
   }
-
   
 }
 

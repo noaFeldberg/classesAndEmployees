@@ -1,0 +1,21 @@
+<h1>Employees Table
+  <mat-icon class="add-circle" (click)="addEmployee()">add_circle</mat-icon>
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Actions</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let employee of employees">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.class.name}}</td>
+        <td><span (click)="removeItem(employee)">Remove</span></td>
+    </tr>
+  </tbody>
+</table>

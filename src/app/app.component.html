@@ -17,14 +17,19 @@
   <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
       <div class="sidebar-content">
           <div (click)="clickOnClasses()">Classes</div>
-          <div>Employees</div>
+          <div (click)="clickOnEmployees()">Employees</div>
       </div>
   </div>
-
-  <div *ngIf="classClicked">
     <app-class-table
+      *ngIf="classClicked"
       [company]="selectedCompany"
       [classes]="filteredClasses"
-    >
-    </app-class-table>
+    ></app-class-table>
+    <app-employees-table
+      *ngIf="employeesClicked"
+      [company]="selectedCompany"
+      [employees]="filteredEmployees"
+      [classes]="filteredClasses"
+    ></app-employees-table>
+
 </div>

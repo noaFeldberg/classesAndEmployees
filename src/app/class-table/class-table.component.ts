@@ -15,12 +15,10 @@ export class ClassTableComponent {
   @Input() company;
   @Input() classes;
 
-  bla=false;
   constructor(private dialog: MatDialog, private store: Store<AppState>) {
   }
 
   addClass() {
-    this.bla = true;
     this.dialog.open(CreateClassDialogComponent,{
       panelClass: ['custom-modalbox'],
       height: '350px', 
