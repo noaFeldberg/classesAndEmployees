@@ -9,6 +9,7 @@ import { CreateClassDialogComponent } from './dialogs/create-class-dialog/create
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+import { classReducer } from './store/reducers/class.reducer'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { StoreModule } from '@ngrx/store';
     MatIconModule,
     MatDialogModule,
     FormsModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({
+      classes: classReducer,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

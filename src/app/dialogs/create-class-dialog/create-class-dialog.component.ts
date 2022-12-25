@@ -1,11 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core'; 
-
-interface classData {
-  id: number;
-  name: string;
-}
 
 @Component({
   selector: 'app-create-class-dialog',
@@ -19,24 +14,12 @@ export class CreateClassDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) 
     private data: {
-      saveCallback: () => void;
+      saveCallback: (name: string) => void;
     },
     private dialogRef: MatDialogRef<CreateClassDialogComponent>) {}
 
-
     onSave() {
-      const classesStored = window.localStorage.getItem('classes');
-      let classes = [];
-      if (classesStored !== null) {
-        classes = JSON.parse(classesStored);
-      }
-      const newClass: classData = {
-        id: Math.random(),
-        name: this.className!
-      };
-      classes.push(newClass);
-      window.localStorage.setItem('classes', JSON.stringify(classes));
-      this.data.saveCallback();
+      this.data.saveCallback(this.className);
       this.dialogRef.close();
     }
 
