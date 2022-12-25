@@ -1,1 +1,20 @@
-<p>remove-class-dialog works!</p>
+<h4>Delete Class</h4>
+<div *ngIf="employees.length > 0; else noEmployees">
+  <ng-container>
+    <span>There are {{employees.length}} employees on the class, Choose class to transfer:</span>
+    <select [ngModel]="selectedClassId" (ngModelChange)="selectClass($event)">
+      <option [value]="undefined">-None-</option>
+      <ng-container *ngFor="let class of otherClasses">
+        <option [value]="class.id">{{class.name}}</option>
+      </ng-container>
+    </select>
+    <button (click)="onDeleteWithEmployees()"> Delete </button>
+    <button (click)="onCancel()"> Cancel</button>
+  </ng-container>
+</div>
+<ng-template #noEmployees>
+  <span>Are you sure you want to delete the class?</span>
+  <button (click)="onDelete()"> Delete </button>
+  <button (click)="onCancel()"> Cancel</button>
+</ng-template>
+

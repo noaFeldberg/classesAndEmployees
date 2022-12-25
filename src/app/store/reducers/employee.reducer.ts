@@ -12,6 +12,11 @@ export function employeeReducer(state: Employee[] = [], action: EmployeeActions.
       const index = newState.findIndex((c) => c.id === action.payload);
       newState.splice(index, 1);
       return newState;
+    case EmployeeActions.CHANGE_EMPLOYEE_CLASS:
+      let newState1 = [...state];
+      const index1 = newState1.findIndex((c) => c.id === action.payload.id);
+      newState1.splice(index1, 1);
+      return [...newState1, action.payload]
     default:
       return state;
   }

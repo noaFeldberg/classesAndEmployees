@@ -63,7 +63,6 @@ export class AppComponent implements OnInit, OnDestroy {
   clickOnEmployees() {
     this.classClicked = false;
     this.employeesClicked = true;
-    console.log("this.filteredClasses: ", this.filteredClasses)
   }
 
   ngOnDestroy(): void {
