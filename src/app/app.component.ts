@@ -14,6 +14,7 @@ export class AppComponent {
   sidebarShow = false;
   
   classClicked = false;
+  bla=false;
 
 
   constructor(private dialog: MatDialog) {
@@ -24,9 +25,11 @@ export class AppComponent {
   }
 
   addClass() {
+    this.bla = true;
     this.dialog.open(CreateClassDialogComponent,{
-      width: '250px',
-      height: '25%',
+      panelClass: ['custom-modalbox'],
+      height: '350px', 
+      width: '100px',
       data:{
         message: 'Are you sure want to delete?',
       }

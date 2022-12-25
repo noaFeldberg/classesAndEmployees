@@ -9,13 +9,21 @@ import { Inject } from '@angular/core';
 })
 
 export class CreateClassDialogComponent {
-  message: string = "Are you sure?"
-  confirmButtonText = "Yes"
-  cancelButtonText = "Cancel"
+  className?: string;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) 
     private data: {
       message?: string;
     },
     private dialogRef: MatDialogRef<CreateClassDialogComponent>) {}
+
+
+    onSave() {
+      this.dialogRef.close();
+    }
+
+    onCancel() {
+      this.dialogRef.close();
+    }
 }

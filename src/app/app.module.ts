@@ -6,7 +6,8 @@ import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { CreateClassDialogComponent } from './dialogs/create-class-dialog/create-class-dialog.component';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
     MatSidenavModule,
     MatIconModule,
     MatDialogModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
