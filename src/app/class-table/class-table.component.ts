@@ -51,7 +51,7 @@ export class ClassTableComponent {
         },
         deleteWithEmployees: (classId: number, employees: Employee[], selectedClassId: number | undefined) => {
           if (selectedClassId) {
-            const selectedClass = this.classes.filter(c => c.id === selectedClassId)
+            const selectedClass: ClassData = this.classes.find(c => c.id == selectedClassId);
             employees.forEach(e => {
               const newEmployee = {...e, classData: selectedClass}
               this.store.dispatch(new EmployeeActions.ChangeEmployeeClass(newEmployee))

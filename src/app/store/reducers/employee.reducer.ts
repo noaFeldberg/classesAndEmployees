@@ -16,6 +16,7 @@ export function employeeReducer(state: Employee[] = [], action: EmployeeActions.
       let newState1 = [...state];
       const index1 = newState1.findIndex((c) => c.id === action.payload.id);
       newState1.splice(index1, 1);
+      const res = [...newState1, action.payload];
       return [...newState1, action.payload]
     default:
       return state;

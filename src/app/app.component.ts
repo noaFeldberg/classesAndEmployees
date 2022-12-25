@@ -1,12 +1,9 @@
 import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AppState } from './app.state';
-import { CreateClassDialogComponent } from './dialogs/create-class-dialog/create-class-dialog.component';
 import { ClassData } from './store/models/class.model';
-import * as ClassActions from './store/actions/class.actions'
 import { Employee } from './store/models/employee.model';
 
 @Component({
@@ -30,7 +27,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
-
   constructor(private store: Store<AppState>) {
     this.selectedCompany = window.localStorage.getItem('company') || this.companies[0];
   }
@@ -47,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }));
   }
 
-  changeCompany(companyName) {
+  changeCompany(companyName: string) {
     this.selectedCompany = companyName;
     window.localStorage.setItem('company', companyName);
     this.filteredClasses = this.classes.filter(c => c.company == companyName);
