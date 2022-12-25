@@ -31,10 +31,12 @@ export class AppComponent {
       height: '350px', 
       width: '100px',
       data:{
-        message: 'Are you sure want to delete?',
+        saveCallback: () => {
+          const items1 = JSON.parse(window.localStorage.getItem('classes')!);
+          console.log(items1);
+        }
       }
     });
-
   }
 }
 

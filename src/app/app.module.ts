@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CreateClassDialogComponent } from './dialogs/create-class-dialog/create-class-dialog.component';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatDialogModule,
     FormsModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent],
