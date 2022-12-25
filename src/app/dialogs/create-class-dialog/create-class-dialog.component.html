@@ -1,5 +1,8 @@
-<h4>Add Class</h4>
+
+<h4 class="header">Add Class</h4>
 <input type="text" placeholder="Class name" [(ngModel)]="className"/>
 
-<button (click)="onSave()"> Save </button>
-<button (click)="onCancel()"> Cancel</button>
+<div class="action-buttons">
+  <button (click)="onSave()"> Save </button>
+  <button (click)="onCancel()"> Cancel</button>
+</div>

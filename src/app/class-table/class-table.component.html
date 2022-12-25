@@ -13,7 +13,7 @@
     <tr *ngFor="let class of classes">
         <td>{{class.id}}</td>
         <td>{{class.name}}</td>
-        <td><span (click)="removeItem(class)">Remove</span></td>
+        <td><span class="remove-button" (click)="removeItem(class)">Remove</span></td>
     </tr>
   </tbody>
 </table>

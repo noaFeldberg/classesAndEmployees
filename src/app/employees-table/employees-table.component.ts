@@ -10,7 +10,7 @@ import { Employee } from '../store/models/employee.model';
 @Component({
   selector: 'app-employees-table',
   templateUrl: './employees-table.component.html',
-  styleUrls: ['./employees-table.component.css']
+  styleUrls: ['../styles/table-style.css']
 })
 export class EmployeesTableComponent {
   @Input() company;

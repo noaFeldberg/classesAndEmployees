@@ -1,6 +1,3 @@
-
-
-<!-- Toolbar -->
 <div class="toolbar" role="banner">
   <mat-icon class="menu" (click)="sidebarShow = !sidebarShow">menu</mat-icon>
   <span class="title">Welcome</span>
@@ -12,7 +9,6 @@
     </select>
 </div>
 
-
 <div class="content" role="main">
   <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
       <div class="sidebar-content">
@@ -20,12 +16,14 @@
           <div (click)="clickOnEmployees()">Employees</div>
       </div>
   </div>
+  
     <app-class-table
       *ngIf="classClicked"
       [company]="selectedCompany"
       [employees]="filteredEmployees"
       [classes]="filteredClasses"
     ></app-class-table>
+
     <app-employees-table
       *ngIf="employeesClicked"
       [company]="selectedCompany"

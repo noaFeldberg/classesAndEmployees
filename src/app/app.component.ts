@@ -17,9 +17,9 @@ import { Employee } from './store/models/employee.model';
 
 export class AppComponent implements OnInit, OnDestroy {
   companies = ["Run.ai", "Facebook", "Apple"];
-  sidebarShow = false;
+  sidebarShow = true;
   selectedCompany;
-  classClicked = false;
+  classClicked = true;
   employeesClicked = false;
 
   classes: ClassData[] = [];

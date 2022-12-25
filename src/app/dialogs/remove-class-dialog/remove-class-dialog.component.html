@@ -1,4 +1,4 @@
-<h4>Delete Class</h4>
+<h4 class="header">Delete Class</h4>
 <div *ngIf="employees.length > 0; else noEmployees">
   <ng-container>
     <span>There are {{employees.length}} employees on the class, Choose class to transfer:</span>
@@ -8,13 +8,17 @@
         <option [value]="class.id">{{class.name}}</option>
       </ng-container>
     </select>
-    <button (click)="onDeleteWithEmployees()"> Delete </button>
-    <button (click)="onCancel()"> Cancel</button>
+    <div class="action-buttons">
+      <button (click)="onDeleteWithEmployees()"> Delete </button>
+      <button (click)="onCancel()"> Cancel</button>
+    </div>
   </ng-container>
 </div>
 <ng-template #noEmployees>
   <span>Are you sure you want to delete the class?</span>
-  <button (click)="onDelete()"> Delete </button>
-  <button (click)="onCancel()"> Cancel</button>
+  <div class="action-buttons">
+    <button (click)="onDelete()"> Delete </button>
+    <button (click)="onCancel()"> Cancel</button>
+  </div>
 </ng-template>
 

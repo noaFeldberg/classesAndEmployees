@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import { Action } from '@ngrx/store'
-import { ClassData } from '../models/class.model';
 import { Employee } from '../models/employee.model';
 
 export const ADD_EMPLOYEE = 'ADD_EMPLOYEE'

@@ -12,7 +12,7 @@ import * as EmployeeActions from '../store/actions/employee.actions'
 @Component({
   selector: 'app-class-table',
   templateUrl: './class-table.component.html',
-  styleUrls: ['./class-table.component.css']
+  styleUrls: ['../styles/table-style.css']
 })
 export class ClassTableComponent {
   @Input() company;
@@ -24,7 +24,7 @@ export class ClassTableComponent {
 
   addClass() {
     this.dialog.open(CreateClassDialogComponent,{
-      height: '350px', 
+      height: '250px', 
       width: '100px',
       data:{
         saveCallback: (name: string) => {
@@ -40,7 +40,7 @@ export class ClassTableComponent {
     const otherClasses = this.classes.filter(c => c.id !== classData.id)
 
     this.dialog.open(RemoveClassDialogComponent,{
-      height: '350px', 
+      height: '600px', 
       width: '100px',
       data:{
         class: classData,
