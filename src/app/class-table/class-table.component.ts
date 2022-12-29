@@ -24,7 +24,7 @@ export class ClassTableComponent {
 
   addClass() {
     this.dialog.open(CreateClassDialogComponent,{
-      height: '230px', 
+      height: '220px', 
       width: '300px',
       data:{
         saveCallback: (name: string) => {
@@ -40,8 +40,8 @@ export class ClassTableComponent {
     const otherClasses = this.classes.filter(c => c.id !== classData.id)
 
     this.dialog.open(RemoveClassDialogComponent,{
-      height: '600px', 
-      width: '100px',
+      height: '260px', 
+      width: '320px',
       data:{
         class: classData,
         otherClasses: otherClasses,

@@ -16,8 +16,9 @@ import { CreateEmployeeDialogComponent } from './dialogs/create-employee-dialog/
 import { employeeReducer } from './store/reducers/employee.reducer';
 import { RemoveClassDialogComponent } from './dialogs/remove-class-dialog/remove-class-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
+    MatSelectModule,
     FormsModule,
     StoreModule.forRoot({
       classes: classReducer,
