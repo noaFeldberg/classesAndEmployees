@@ -4,7 +4,7 @@
     <div *ngIf="employees.length > 0; else noEmployees">
       <ng-container>
         <span>There are {{employees.length}} employees on the class, Choose class to transfer:</span>
-        <mat-form-field appearance="fill">
+        <mat-form-field class="classes-list" appearance="fill">
           <mat-label>Class</mat-label>
           <mat-select [(value)]="selectedClassId">
             <mat-option>None</mat-option>

@@ -14,5 +14,10 @@ h2 {
 }
 
 .action-buttons {
-  margin-top: 50px;
+  margin-top: 20;
+  padding-bottom: 12px;
+}
+
+.classes-list {
+  margin-top: 10px;
 }

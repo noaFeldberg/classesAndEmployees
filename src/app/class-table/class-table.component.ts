@@ -40,8 +40,9 @@ export class ClassTableComponent {
     const otherClasses = this.classes.filter(c => c.id !== classData.id)
 
     this.dialog.open(RemoveClassDialogComponent,{
-      height: '260px', 
       width: '320px',
+      minHeight: 'calc(100vh - 700px)',
+      height : 'auto',
       data:{
         class: classData,
         otherClasses: otherClasses,
