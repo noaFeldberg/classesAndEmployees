@@ -23,18 +23,11 @@ export class CreateEmployeeDialogComponent {
       this.classes = this.data.classes;
     }
 
-    changeClass(selectedClassId: number) {
-      if (selectedClassId) {
-        this.employeeClass = this.classes.find(c => c.id == selectedClassId);
-      }
-    }
-
     onSave() {
-      this.data.saveCallback(this.employeeName, this.employeeClass);
-      this.dialogRef.close();
-    }
-
-    onCancel() {
+      if (this.selectedClassId) {
+        this.employeeClass = this.classes.find(c => c.id == this.selectedClassId);
+        this.data.saveCallback(this.employeeName, this.employeeClass);
+      }
       this.dialogRef.close();
     }
 }

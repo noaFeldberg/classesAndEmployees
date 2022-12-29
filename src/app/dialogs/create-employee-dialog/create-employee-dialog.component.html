@@ -1,16 +1,22 @@
-<h4 class="header">Add Employee</h4>
-<input type="text" placeholder="Employee name" [(ngModel)]="employeeName"/>
-<div style="margin-top:10px">
-  <span style="margin-left: 10px;" class="class-title">Class:</span>
-  <select [ngModel]="selectedClassId" (ngModelChange)="changeClass($event)">
-    <ng-container *ngFor="let class of classes">
-      <option [value]="class.id">{{class.name}}</option>
-    </ng-container>
-  </select>
-</div>
-
-<div class="action-buttons">
-  <button (click)="employeeClass != undefined && onSave()"> Save </button>
-  <button (click)="onCancel()"> Cancel</button>
-</div>
-
+<h2 mat-dialog-title>Add New Employee</h2>
+<mat-dialog-content>
+  <mat-form-field class="class-name-field">
+    <mat-label>Employee Name</mat-label>
+    <input matInput type="text" [(ngModel)]="employeeName">
+    <button *ngIf="employeeName" matSuffix mat-icon-button aria-label="Clear" (click)="employeeName=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Class</mat-label>
+    <mat-select [(value)]="selectedClassId">
+      <mat-option [value]="class.id" *ngFor="let class of classes">
+        {{class.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)=" employeeName && selectedClassId && onSave()">Save</button>
+  <button mat-button [mat-dialog-close]="true">Cancel</button>
+</mat-dialog-actions>

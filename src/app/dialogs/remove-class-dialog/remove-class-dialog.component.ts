@@ -29,10 +29,6 @@ export class RemoveClassDialogComponent {
       this.otherClasses = this.data.otherClasses;
     }
 
-    selectClass(selectedClass) {
-      this.selectedClassId = selectedClass;
-    }
-
     onDelete() {
       this.data.deleteCallback(this.class.id);
       this.dialogRef.close();
@@ -42,8 +38,5 @@ export class RemoveClassDialogComponent {
       this.data.deleteWithEmployees(this.class.id, this.employees, this.selectedClassId);
       this.dialogRef.close();
     }
-
-    onCancel() {
-      this.dialogRef.close();
-    }
+    
 }

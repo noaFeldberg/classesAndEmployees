@@ -22,8 +22,8 @@ export class EmployeesTableComponent {
 
   addEmployee() {
     this.dialog.open(CreateEmployeeDialogComponent,{
-      height: '350px', 
-      width: '400px',
+      height: '300px', 
+      width: '300px',
       data:{
         classes: this.classes,
         saveCallback: (name: string, classData: ClassData) => {
