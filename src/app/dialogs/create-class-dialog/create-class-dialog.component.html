@@ -1,8 +1,14 @@
-
-<h4 class="header">Add Class</h4>
-<input type="text" placeholder="Class name" [(ngModel)]="className"/>
-
-<div class="action-buttons">
-  <button (click)="onSave()"> Save </button>
-  <button (click)="onCancel()"> Cancel</button>
-</div>
+<h2 mat-dialog-title>Add New Class</h2>
+<mat-dialog-content>
+  <mat-form-field class="class-name-field">
+    <mat-label>Class Name</mat-label>
+    <input matInput type="text" [(ngModel)]="className">
+    <button *ngIf="className" matSuffix mat-icon-button aria-label="Clear" (click)="className=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onSave()">Save</button>
+  <button mat-button [mat-dialog-close]="true">Cancel</button>
+</mat-dialog-actions>

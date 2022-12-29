@@ -1,4 +1,4 @@
-.header {
+/* .header {
   text-align: center;
   margin: 0px 0px 10px 0px;
   padding: 10px 0px;
@@ -18,4 +18,19 @@ input {
 
 .action-buttons button {
   margin-right: 10px;
+} */
+
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.7px solid black;
+  padding: 5px 0px;
+  margin-bottom: 10px;
+  background-color: #3f51b5;
+  color: white !important;
+}
+
+.class-name-field {
+  width: 250px;
 }

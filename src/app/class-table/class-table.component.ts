@@ -24,8 +24,8 @@ export class ClassTableComponent {
 
   addClass() {
     this.dialog.open(CreateClassDialogComponent,{
-      height: '250px', 
-      width: '100px',
+      height: '230px', 
+      width: '300px',
       data:{
         saveCallback: (name: string) => {
           const id = Math.floor(Math.random() * 100);
@@ -65,7 +65,5 @@ export class ClassTableComponent {
         },
       }
     });
-
-
   }
 }

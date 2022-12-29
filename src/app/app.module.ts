@@ -6,7 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { CreateClassDialogComponent } from './dialogs/create-class-dialog/create-class-dialog.component';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { classReducer } from './store/reducers/class.reducer';
@@ -15,6 +15,9 @@ import { EmployeesTableComponent } from './employees-table/employees-table.compo
 import { CreateEmployeeDialogComponent } from './dialogs/create-employee-dialog/create-employee-dialog.component'
 import { employeeReducer } from './store/reducers/employee.reducer';
 import { RemoveClassDialogComponent } from './dialogs/remove-class-dialog/remove-class-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -28,14 +31,17 @@ import { RemoveClassDialogComponent } from './dialogs/remove-class-dialog/remove
   imports: [
     BrowserModule,
     NgSelectModule,
+    MatInputModule,
     MatSidenavModule,
     MatIconModule,
+    MatButtonModule,
     MatDialogModule,
     FormsModule,
     StoreModule.forRoot({
       classes: classReducer,
       employees: employeeReducer,
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -23,7 +23,4 @@ export class CreateClassDialogComponent {
       this.dialogRef.close();
     }
 
-    onCancel() {
-      this.dialogRef.close();
-    }
 }
