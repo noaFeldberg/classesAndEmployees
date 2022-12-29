@@ -15,9 +15,9 @@ import * as EmployeeActions from '../store/actions/employee.actions'
   styleUrls: ['../styles/table-style.css']
 })
 export class ClassTableComponent {
-  @Input() company;
-  @Input() classes;
-  @Input() employees;
+  @Input() company!: string;
+  @Input() classes?: ClassData[];
+  @Input() employees?: Employee[];
 
   constructor(private dialog: MatDialog, private store: Store<AppState>) {
   }
@@ -36,8 +36,8 @@ export class ClassTableComponent {
   }
 
   removeItem(classData: ClassData) {
-    const classEmployees = this.employees.filter(e => e.classData.id === classData.id);
-    const otherClasses = this.classes.filter(c => c.id !== classData.id)
+    const classEmployees = this.employees?.filter(e => e.classData.id === classData.id);
+    const otherClasses = this.classes?.filter(c => c.id !== classData.id)
 
     this.dialog.open(RemoveClassDialogComponent,{
       width: '320px',
@@ -52,11 +52,13 @@ export class ClassTableComponent {
         },
         deleteWithEmployees: (classId: number, employees: Employee[], selectedClassId: number | undefined) => {
           if (selectedClassId) {
-            const selectedClass: ClassData = this.classes.find(c => c.id == selectedClassId);
-            employees.forEach(e => {
-              const newEmployee = {...e, classData: selectedClass}
-              this.store.dispatch(new EmployeeActions.ChangeEmployeeClass(newEmployee))
-            })
+            const selectedClass = this.classes?.find(c => c.id == selectedClassId);
+            if (selectedClass) {
+              employees.forEach(e => {
+                const newEmployee = {...e, classData: selectedClass}
+                this.store.dispatch(new EmployeeActions.ChangeEmployeeClass(newEmployee))
+              })
+            }
           } else {
             employees.forEach(e => {
               this.store.dispatch(new EmployeeActions.RemoveEmployee(e.id));

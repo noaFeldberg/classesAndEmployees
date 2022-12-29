@@ -3,7 +3,7 @@ import { ClassData } from '../models/class.model'
 import * as ClassActions from '../actions/class.actions'
 
 
-export function classReducer(state: ClassData[] = [], action: ClassActions.Actions) {
+export function classReducer(state: ClassData[] = [], action: any) {
   switch (action.type) {
     case ClassActions.ADD_CLASS:
       return [...state, action.payload]

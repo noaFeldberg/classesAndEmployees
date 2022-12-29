@@ -13,9 +13,9 @@ import { Employee } from '../store/models/employee.model';
   styleUrls: ['../styles/table-style.css']
 })
 export class EmployeesTableComponent {
-  @Input() company;
-  @Input() employees;
-  @Input() classes;
+  @Input() company!: string;
+  @Input() employees?: Employee[];
+  @Input() classes?: ClassData[];
 
   constructor(private dialog: MatDialog, private store: Store<AppState>) {
   }

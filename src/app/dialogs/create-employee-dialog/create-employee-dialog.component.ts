@@ -11,7 +11,7 @@ export class CreateEmployeeDialogComponent {
   employeeName?: string;
   employeeClass?: ClassData;
   classes: ClassData[];
-  selectedClassId: number;
+  selectedClassId?: number;
       
   constructor(
     @Inject(MAT_DIALOG_DATA) 
@@ -24,9 +24,9 @@ export class CreateEmployeeDialogComponent {
     }
 
     onSave() {
-      if (this.selectedClassId) {
+      if (this.selectedClassId && this.employeeName) {
         this.employeeClass = this.classes.find(c => c.id == this.selectedClassId);
-        this.data.saveCallback(this.employeeName, this.employeeClass);
+        this.data.saveCallback(this.employeeName, this.employeeClass!);
       }
       this.dialogRef.close();
     }

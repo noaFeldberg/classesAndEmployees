@@ -19,8 +19,9 @@ export class CreateClassDialogComponent {
     private dialogRef: MatDialogRef<CreateClassDialogComponent>) {}
 
     onSave() {
-      this.data.saveCallback(this.className);
-      this.dialogRef.close();
+      if (this.className) {
+        this.data.saveCallback(this.className);
+        this.dialogRef.close();
+      }
     }
-
 }
