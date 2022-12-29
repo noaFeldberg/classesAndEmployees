@@ -5,7 +5,7 @@ import { Inject } from '@angular/core';
 @Component({
   selector: 'app-create-class-dialog',
   templateUrl: './create-class-dialog.component.html',
-  styleUrls: ['../../styles/dialog-style.css']
+  styleUrls: ['../../styles/dialog-style.scss']
 })
 
 export class CreateClassDialogComponent {

@@ -6,7 +6,7 @@ import { Employee } from 'src/app/store/models/employee.model';
 @Component({
   selector: 'app-remove-class-dialog',
   templateUrl: './remove-class-dialog.component.html',
-  styleUrls: ['../../styles/dialog-style.css']
+  styleUrls: ['../../styles/dialog-style.scss']
 })
 export class RemoveClassDialogComponent {
   employees: Employee[];

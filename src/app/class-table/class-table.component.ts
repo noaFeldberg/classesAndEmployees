@@ -12,7 +12,7 @@ import * as EmployeeActions from '../store/actions/employee.actions'
 @Component({
   selector: 'app-class-table',
   templateUrl: './class-table.component.html',
-  styleUrls: ['../styles/table-style.css']
+  styleUrls: ['../styles/table-style.scss']
 })
 export class ClassTableComponent {
   @Input() company!: string;

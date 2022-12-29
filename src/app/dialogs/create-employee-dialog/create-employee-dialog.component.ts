@@ -5,7 +5,7 @@ import { ClassData } from 'src/app/store/models/class.model';
 @Component({
   selector: 'app-create-employee-dialog',
   templateUrl: './create-employee-dialog.component.html',
-  styleUrls: ['../../styles/dialog-style.css']
+  styleUrls: ['../../styles/dialog-style.scss']
 })
 export class CreateEmployeeDialogComponent {
   employeeName?: string;
