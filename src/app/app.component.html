@@ -4,7 +4,7 @@
     <div class="spacer"></div>
     <select class="company-selection" [ngModel]="selectedCompany" (ngModelChange)="changeCompany($event)">
       <ng-container *ngFor="let company of companies">
-        <option>{{company}}</option>
+        <option class="bla1">{{company}}</option>
       </ng-container>
     </select>
 </div>
@@ -12,8 +12,10 @@
 <div class="content" role="main">
   <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
       <div class="sidebar-content">
-          <div (click)="clickOnClasses()">Classes</div>
-          <div (click)="clickOnEmployees()">Employees</div>
+          <div [ngStyle]="{'color' : classClicked ? 'white' : 'black'}" (click)="clickOnClasses()">Classes</div>
+          <mat-divider></mat-divider>
+          <div [ngStyle]="{'color' : employeesClicked ? 'white' : 'black'}" (click)="clickOnEmployees()">Employees</div>
+          <mat-divider></mat-divider>
       </div>
   </div>
   

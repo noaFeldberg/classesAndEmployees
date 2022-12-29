@@ -28,6 +28,10 @@
   margin-right: 5px;
 }
 
+.company-selection {
+  border-radius: 6px;
+  padding: 4px;
+}
 
 .content {
   display: flex;

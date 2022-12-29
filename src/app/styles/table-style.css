@@ -9,10 +9,3 @@ td, th {
   text-decoration: underline;
   cursor: pointer;
 }
-
-/* ::ng-deep mat-dialog-container {
-  position: absolute !important;
-  width: 200px !important;
-  height: 220px !important;
-  padding: 3px !important;
-} */
