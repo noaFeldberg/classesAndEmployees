@@ -73,6 +73,6 @@
   cursor: pointer;
 }
 
-.sidebar-content div:hover {
-  color: black;
+.content-data {
+  max-width: calc(100% - 400px);
 }

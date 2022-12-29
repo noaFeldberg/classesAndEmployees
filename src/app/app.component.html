@@ -1,15 +1,15 @@
-<div class="toolbar" role="banner">
+<div class="toolbar">
   <mat-icon class="menu" (click)="sidebarShow = !sidebarShow">menu</mat-icon>
   <span class="title">Welcome</span>
     <div class="spacer"></div>
     <select class="company-selection" [ngModel]="selectedCompany" (ngModelChange)="changeCompany($event)">
       <ng-container *ngFor="let company of companies">
-        <option class="bla1">{{company}}</option>
+        <option>{{company}}</option>
       </ng-container>
     </select>
 </div>
 
-<div class="content" role="main">
+<div class="content">
   <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
       <div class="sidebar-content">
           <div [ngStyle]="{'color' : classClicked ? 'white' : 'black'}" (click)="clickOnClasses()">Classes</div>
@@ -18,19 +18,18 @@
           <mat-divider></mat-divider>
       </div>
   </div>
-  
+  <div class="content-data">
     <app-class-table
       *ngIf="classClicked"
       [company]="selectedCompany"
       [employees]="filteredEmployees"
       [classes]="filteredClasses"
     ></app-class-table>
-
     <app-employees-table
       *ngIf="employeesClicked"
       [company]="selectedCompany"
       [employees]="filteredEmployees"
       [classes]="filteredClasses"
     ></app-employees-table>
-
+  </div>
 </div>
