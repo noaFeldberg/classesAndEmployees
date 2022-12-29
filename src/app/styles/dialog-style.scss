@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 h2 {
   display: flex;
   align-items: center;
@@ -5,7 +7,7 @@ h2 {
   border-bottom: 0.7px solid black;
   padding: 5px 0px;
   margin-bottom: 10px;
-  background-color: #3f51b5;
+  background-color: $primary-color;
   color: white !important;
 }
 
