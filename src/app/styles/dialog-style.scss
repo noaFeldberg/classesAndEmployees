@@ -1,0 +1,25 @@
+@import '../variables.scss';
+
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.7px solid black;
+  padding: 5px 0px;
+  margin-bottom: 10px;
+  background-color: $primary-color;
+  color: white !important;
+}
+
+.class-name-field {
+  width: 250px;
+}
+
+.action-buttons {
+  margin-top: 20;
+  padding-bottom: 12px;
+}
+
+.classes-list {
+  margin-top: 10px;
+}

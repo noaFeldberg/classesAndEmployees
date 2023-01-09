@@ -10,20 +10,20 @@ import { Employee } from '../store/models/employee.model';
 @Component({
   selector: 'app-employees-table',
   templateUrl: './employees-table.component.html',
-  styleUrls: ['../styles/table-style.css']
+  styleUrls: ['../styles/table-style.scss']
 })
 export class EmployeesTableComponent {
-  @Input() company;
-  @Input() employees;
-  @Input() classes;
+  @Input() company!: string;
+  @Input() employees?: Employee[];
+  @Input() classes?: ClassData[];
 
   constructor(private dialog: MatDialog, private store: Store<AppState>) {
   }
 
   addEmployee() {
     this.dialog.open(CreateEmployeeDialogComponent,{
-      height: '350px', 
-      width: '100px',
+      height: '300px', 
+      width: '300px',
       data:{
         classes: this.classes,
         saveCallback: (name: string, classData: ClassData) => {

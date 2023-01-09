@@ -3,7 +3,7 @@ import * as EmployeeActions from '../actions/employee.actions'
 import { Employee } from '../models/employee.model';
 
 
-export function employeeReducer(state: Employee[] = [], action: EmployeeActions.Actions) {
+export function employeeReducer(state: Employee[] = [], action: any) {
   let index;
   let newState;
 

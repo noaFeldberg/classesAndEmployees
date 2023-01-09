@@ -5,7 +5,7 @@ import { Inject } from '@angular/core';
 @Component({
   selector: 'app-create-class-dialog',
   templateUrl: './create-class-dialog.component.html',
-  styleUrls: ['../../styles/dialog-style.css']
+  styleUrls: ['../../styles/dialog-style.scss']
 })
 
 export class CreateClassDialogComponent {
@@ -19,11 +19,9 @@ export class CreateClassDialogComponent {
     private dialogRef: MatDialogRef<CreateClassDialogComponent>) {}
 
     onSave() {
-      this.data.saveCallback(this.className);
-      this.dialogRef.close();
-    }
-
-    onCancel() {
-      this.dialogRef.close();
+      if (this.className) {
+        this.data.saveCallback(this.className);
+        this.dialogRef.close();
+      }
     }
 }

@@ -1,24 +1,28 @@
-<h4 class="header">Delete Class</h4>
-<div *ngIf="employees.length > 0; else noEmployees">
-  <ng-container>
-    <span>There are {{employees.length}} employees on the class, Choose class to transfer:</span>
-    <select [ngModel]="selectedClassId" (ngModelChange)="selectClass($event)">
-      <option [value]="undefined">-None-</option>
-      <ng-container *ngFor="let class of otherClasses">
-        <option [value]="class.id">{{class.name}}</option>
+<h2 mat-dialog-title>Delete Class</h2>
+<div class="wrapper">
+  <mat-dialog-content>
+    <div *ngIf="employees.length > 0; else noEmployees">
+      <ng-container>
+        <span>There are {{employees.length}} employees on the class, Choose class to transfer:</span>
+        <mat-form-field class="classes-list" appearance="fill">
+          <mat-label>Class</mat-label>
+          <mat-select [(value)]="selectedClassId">
+            <mat-option>None</mat-option>
+            <mat-option [value]="class.id" *ngFor="let class of otherClasses">
+              {{class.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </ng-container>
-    </select>
-    <div class="action-buttons">
-      <button (click)="onDeleteWithEmployees()"> Delete </button>
-      <button (click)="onCancel()"> Cancel</button>
     </div>
-  </ng-container>
+    <ng-template #noEmployees>
+      <span>Are you sure you want to delete the class?</span>
+    </ng-template>
+  </mat-dialog-content>
+  <mat-dialog-actions class="action-buttons" align="end">
+    <button mat-button (click)="employees.length > 0 ? onDeleteWithEmployees() : onDelete()"> Delete </button>
+    <button mat-button [mat-dialog-close]="true"> Cancel</button>
+  </mat-dialog-actions>
 </div>
-<ng-template #noEmployees>
-  <span>Are you sure you want to delete the class?</span>
-  <div class="action-buttons">
-    <button (click)="onDelete()"> Delete </button>
-    <button (click)="onCancel()"> Cancel</button>
-  </div>
-</ng-template>
+
 
