@@ -1,6 +1,9 @@
 # RunaiCompanies
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+In this project the user is able to create, update and delete classes and employees for the following conmpanies: Facebook, Apple and Run.ai.
+ - State management - rxjs and local storage.
+ - Design - Angular material and animations.
 
 ## Development server
 
